@@ -56,8 +56,8 @@ $|${justify}{detain}{accept}$⟩$
 To run the algorithm notebook:
 
 ```bash
-pipenv shell
 pipenv install
+pipenv shell
 jupyter-lab
 ```
 
