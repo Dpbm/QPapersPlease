@@ -69,8 +69,8 @@ To run the website:
 ```bash
 #backend First
 cd ./backend/
-pipenv shell
 pipenv install
+pipenv shell
 flask --app web run
 
 #frontend
