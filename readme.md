@@ -12,6 +12,12 @@ However, I've created a web version, which you can run locally and test the diff
 
 ![web version](./assets/website-screenshot.png)
 
+
+https://github.com/Dpbm/QPapersPlease/assets/75098594/32af5d83-6bfc-45c0-852d-2c44b3ad2418
+
+
+
+
 ## Algorithm
 
 The algorithm is based on the mechanics of the game but, to make this algorithm smaller: 
