@@ -23,7 +23,7 @@ The algorithm is based on the mechanics of the game but, to make this algorithm 
 So first, we encoded the input data in form of `x` gates when we want to flip `0 --> 1` or `false --> true` in the first section.
 ![encoded inputs](./assets/input-encoding.png)
 
-After that, we check if the immigrant can be accepted, so we check if he has the `passport` of if he's trying to `bribe`, if any of these are true, the accept become true.
+After that, we check if the immigrant can be accepted, so we check if he has the `passport` or if he's trying to `bribe`, if any of these are true, the accept become true.
 
 ![accepted](./assets/accepted.png)
  
