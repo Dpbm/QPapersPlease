@@ -1,4 +1,5 @@
-from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, Aer
+from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+from qiskit.quantum_info import Statevector
 
 class PapersPlease:
     def __init__(self):
@@ -11,13 +12,11 @@ class PapersPlease:
         self.passport = QuantumRegister(1, name="passport")
         self.other_documents = QuantumRegister(1, name="documents")
         self.ancilla = QuantumRegister(2, name="ancilla")
-        self.measure = ClassicalRegister(3, name="out")
 
         self.qc = self.init_qubits()
-        self.sim = Aer.get_backend('aer_simulator') 
     
     def init_qubits(self):
-        return QuantumCircuit(self.accept, self.detain, self.justify, self.ancilla, self.passport, self.other_documents, self.bribe, self.wanted, self.false_info, self.measure)
+        return QuantumCircuit(self.accept, self.detain, self.justify, self.ancilla, self.passport, self.other_documents, self.bribe, self.wanted, self.false_info)
 
     def create_circuit(self, bribe=0, false_info=0, wanted=0, passport=0, other_documents=0):
         self.add_inputs(bribe, false_info, wanted, passport, other_documents)
@@ -27,8 +26,6 @@ class PapersPlease:
         self.set_justify()
         self.add_barrier()
         self.set_detain()
-        self.add_barrier()
-        self.add_measurement()
 
     def add_inputs(self, bribe, false_info, wanted, passport, other_documents):
         if(bribe):
@@ -83,19 +80,15 @@ class PapersPlease:
         self.qc.x(self.ancilla[-1])
         self.qc.x(self.ancilla[-2])
 
-    def add_measurement(self):
-        self.qc.measure(self.accept, self.measure[0])
-        self.qc.measure(self.detain, self.measure[1])
-        self.qc.measure(self.justify, self.measure[2])
-
     def save_circuit_image(self):
         self.qc.draw(output="mpl", filename='static/circuit.png')
 
     def get_states(self):
-        results = self.sim.run(self.qc).result().get_counts()
-        bit_string = list(results.keys())[0]
+        state = Statevector(self.qc)         
+        bit_string = list(state.to_dict().keys())[0]
         return {
             "accept": bit_string[-1],
             "detain": bit_string[-2],
             "justify": bit_string[-3],
+            "latex": state.draw('latex').data.replace("$$", "")
         }

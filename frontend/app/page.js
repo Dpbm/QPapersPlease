@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
+import { BlockMath } from 'react-katex';
 
 export default function Home() {
 	const circuitURL = `${
@@ -22,6 +23,7 @@ export default function Home() {
 		detain: '0',
 		justify: '1',
 	});
+  const [latexData, setLatexData] = useState('');
 
 	const [loading, setLoading] = useState(false);
 
@@ -38,7 +40,8 @@ export default function Home() {
 					passport,
 				}
 			);
-			setCircuitState(data);
+			setCircuitState({detain:data.detain,accept:data.accept, justify:data.justify});
+      setLatexData(data.latex);
 			setLoading(false);
 		} catch (error) {
 			console.error(
@@ -161,6 +164,7 @@ export default function Home() {
 						</section>
 
 						<section className={styles.sectionContainer}>
+              <BlockMath>{latexData}</BlockMath>
 							<img
 								src={circuitURL}
 								alt='circuit image'

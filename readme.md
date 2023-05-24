@@ -13,10 +13,6 @@ However, I've created a web version, which you can run locally and test the diff
 ![web version](./assets/website-screenshot.png)
 
 
-https://github.com/Dpbm/QPapersPlease/assets/75098594/32af5d83-6bfc-45c0-852d-2c44b3ad2418
-
-
-
 
 ## Algorithm
 
@@ -41,11 +37,9 @@ In the last step, we check if we can detain the person, so we check if there're 
 
 ![detain](./assets/detain.png)
 
-To get the result, we measure the accept, detain and justify qubit in this order:
+To get the result, we get the statevector from the circuit, which the last 3 qubits, which represents: accept, detain and justify in this order:
 
 $|${justify}{detain}{accept}$⟩$
-
-![measurement](./assets/measurement.png)
 
 
 ## Running
