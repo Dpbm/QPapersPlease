@@ -1,4 +1,4 @@
-from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+from qiskit import QuantumCircuit, QuantumRegister, AncillaRegister
 from qiskit.quantum_info import Statevector
 
 class PapersPlease:
@@ -11,7 +11,7 @@ class PapersPlease:
         self.wanted = QuantumRegister(1, name="wanted")
         self.passport = QuantumRegister(1, name="passport")
         self.other_documents = QuantumRegister(1, name="documents")
-        self.ancilla = QuantumRegister(2, name="ancilla")
+        self.ancilla = AncillaRegister(2, name="ancilla")
 
         self.qc = self.init_qubits()
     
