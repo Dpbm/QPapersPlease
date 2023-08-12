@@ -1,0 +1,6 @@
+qiskit
+jupyterlab
+matplotlib
+pylatexenc
+python-dotenv
+qiskit-ibm-provider
