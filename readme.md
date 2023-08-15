@@ -35,7 +35,7 @@ jupyter-lab
 In case you want to run the algorithm in a `IBMQ real quantum computer` you will need to go to [https://quantum-computing.ibm.com/](https://quantum-computing.ibm.com/), create an account, [get you API Token](https://quantum-computing.ibm.com/account) and run:
 
 ```bash
-echo "YOUR_API_TOKEN_HERE" > .env
+echo "IBM_API_TOKEN=YOUR_API_TOKEN_HERE" > .env
 ```
 
 
